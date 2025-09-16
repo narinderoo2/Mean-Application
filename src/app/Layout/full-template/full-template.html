@@ -1,0 +1,22 @@
+
+<app-header></app-header>
+
+<main class="lg:hs-overlay-layout-open:ps-60 transition-all duration-300 lg:fixed lg:inset-0 pt-13 px-3 pb-3">
+  <div id="hs-pro-sidebar"
+    class="hs-overlay [--body-scroll:true] lg:[--overlay-backdrop:false] [--is-layout-affect:true] [--opened:lg] [--auto-close:lg] hs-overlay-open:translate-x-0 lg:hs-overlay-layout-open:translate-x-0 -translate-x-full transition-all duration-300 transform w-60 fixed inset-y-0 z-60 start-0 bg-gray-100 lg:block lg:-translate-x-full lg:end-auto lg:bottom-0 dark:bg-neutral-900 open opened"
+    role="dialog" aria-label="Sidebar" style="outline: none;" aria-overlay="true" tabindex="-1">
+    <div class="lg:pt-13 relative flex flex-col h-full max-h-full">
+      <!-- Body -->
+
+<app-sidebar></app-sidebar>
+
+ 
+      <!-- Footer -->
+<app-footer></app-footer>
+      <!-- End Footer -->
+    </div>
+  </div>
+  <!-- End Sidebar -->
+
+<router-outlet></router-outlet>
+</main>
