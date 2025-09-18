@@ -1,19 +1,9 @@
 const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
 
 module.exports = withModuleFederationPlugin({
-
-  // name: 'MeanApp',
-
-  // exposes: {
-  //   './Component': './src\app\app.ts',
-  // },
-
-  // shared: {
-  //   ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
-  // },
-
+  name: 'MeanApp',
   remotes: {
-    microapp: "microapp@http://localhost:4201/remoteEntry.js",
+    microapp: "http://localhost:4201/remoteEntry.js",
   },
 shared: {
     "@angular/core": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
