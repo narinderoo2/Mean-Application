@@ -1,28 +1,11 @@
-/MEAN
-├── src/
-│   ├── app/             <-- The Host Application
-│   │   ├── src/
-│   │   │   ├── app/
-│   │   │   ├── ...
-│   │   ├── webpack.config.js   <-- Host-specific webpack config
-│   │   └── ...
-│   
-├── angular.json               <-- Workspace configuration
-├── package.json               <-- Shared dependencies
-├── tsconfig.json              <-- Shared TypeScript configuration
-└── ...
+We impliment micro-front end application with the help of webpack . 
+
+name: 'MeanApp',
+remotes: {
+   microapp: "http://localhost:4201/remoteEntry.js",
+}
+
+# Mico-Front end application done Now I impiment storyBook 
 
 
-/Micro
-├── src/
-│   ├── app/             <-- The Host Application
-│   │   ├── src/
-│   │   │   ├── app/
-│   │   │   ├── ...
-│   │   ├── webpack.config.js   <-- Host-specific webpack config
-│   │   └── ...
-│   
-├── angular.json               <-- Workspace configuration
-├── package.json               <-- Shared dependencies
-├── tsconfig.json              <-- Shared TypeScript configuration
-└── ...
+
