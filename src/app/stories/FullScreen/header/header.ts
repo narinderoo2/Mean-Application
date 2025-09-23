@@ -1,13 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ButtonComponent } from './button.component';
-import type { User } from './user';
+import { Button  } from '../../Forms/button/button';
 
+
+export interface User {
+  name: string;
+}
 @Component({
-  selector: 'storybook-header',
-  standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  selector: 'app-header',
+  imports: [CommonModule, Button],
   template: `<header>
   <div class="storybook-header">
     <div>
@@ -59,9 +61,11 @@ import type { User } from './user';
     </div>
   </div>
 </header>`,
-  styleUrls: ['./header.css'],
+  styleUrl: './header.scss'
 })
-export class HeaderComponent {
+export class Header {
+
+ 
   @Input()
   user: User | null = null;
 

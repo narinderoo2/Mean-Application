@@ -2,20 +2,20 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'storybook-button',
-  standalone: true,
+  selector: 'app-button',
   imports: [CommonModule],
-  template: ` <button
+   template: ` <button
   type="button"
   (click)="onClick.emit($event)"
   [ngClass]="classes"
-  [ngStyle]="{ 'background-color': backgroundColor }"
->
+  [ngStyle]="{ 'background-color': backgroundColor }">
   {{ label }}
 </button>`,
-  styleUrls: ['./button.css'],
+  styleUrl: './button.scss'
 })
-export class ButtonComponent {
+export class Button {
+
+ 
   /** Is this the principal call to action on the page? */
   @Input()
   primary = false;

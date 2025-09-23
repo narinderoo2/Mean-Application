@@ -5,6 +5,14 @@ setCompodocJson(docJson);
 
 const preview: Preview = {
   parameters: {
+    backgrounds: {
+      options: {
+        light: { name: 'Light', value: '#fff' },
+        dark: { name: 'Dark', value: '#333' },
+      },
+    },
+
+    
     controls: {
       matchers: {
        color: /(background|color)$/i,

@@ -1,14 +1,16 @@
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HeaderComponent } from './header.component';
-import type { User } from './user';
+import { Header } from '../../FullScreen/header/header';
+export interface User {
+  name: string;
+}
 
 @Component({
-  selector: 'storybook-page',
-  standalone: true,
-  imports: [CommonModule, HeaderComponent],
-  template: `<article>
+  selector: 'app-dashboard',
+  imports: [CommonModule, Header],
+    template: `<article>
   <storybook-header
     [user]="user"
     (onLogout)="doLogout()"
@@ -63,9 +65,11 @@ import type { User } from './user';
     </div>
   </section>
 </article>`,
-  styleUrls: ['./page.css'],
+  styleUrl: './dashboard.scss'
 })
-export class PageComponent {
+export class Dashboard {
+
+ 
   user: User | null = null;
 
   doLogout() {
