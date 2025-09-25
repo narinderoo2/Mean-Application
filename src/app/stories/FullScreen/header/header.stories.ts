@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { fn } from 'storybook/test';
 
-import { Header } from './header';
+import { Header  } from './header';
 
 const meta: Meta<Header> = {
-  title: 'Example/Header',
+  title: 'FullScreen/Header',
   component: Header,
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen',
   },
   args: {

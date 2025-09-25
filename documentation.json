@@ -93,17 +93,19 @@
         },
         {
             "name": "Button",
-            "id": "component-Button-d856a1337c2cb8fac9761261164857f83d48ab1e236859130233536e7b8fb935ebfb7187edb449870af385ff9d6c5ad42f224de23cfce67e8f487f582c32017e",
-            "file": "src/app/stories/Forms/button/button.ts",
+            "id": "component-Button-c67234eac9a866f4498850a116e1943e4579fe4e5a719fa63ba3ea8d170eb8e2b5a0e936f06ae9fc20b9ccd0b25676ff1378bdde437a641004fa42ebf661cf7f",
+            "file": "src/app/Stories/Forms/button/button.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-button",
-            "styleUrls": [],
+            "selector": "storybook-button",
+            "styleUrls": [
+                "./button.scss"
+            ],
             "styles": [],
-            "template": " <button  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\">\n  {{ label }}\n</button>",
+            "template": " <button  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -125,16 +127,16 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 758,
-                            "end": 772,
+                            "pos": 707,
+                            "end": 721,
                             "kind": 327,
                             "id": 0,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "tagName": {
-                                "pos": 759,
-                                "end": 767,
+                                "pos": 708,
+                                "end": 716,
                                 "kind": 80,
                                 "id": 0,
                                 "flags": 16842752,
@@ -155,8 +157,6 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\nIs this the principal call to action on the page?",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
                     "line": 21,
                     "type": "boolean",
                     "decorators": []
@@ -201,10 +201,14 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  imports: [CommonModule],\r\n   template: ` <button\r\n  type=\"button\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'background-color': backgroundColor }\">\r\n  {{ label }}\r\n</button>`,\r\n  styleUrl: './button.scss'\r\n})\r\nexport class Button {\r\n\r\n \r\n  /** Is this the principal call to action on the page? */\r\n  @Input()\r\n  primary = false;\r\n\r\n  /** What background color to use */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /** How large should the button be? */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'medium';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /** Optional click handler */\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\r\n\r\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\r\n  }\r\n}\r\n",
-            "styleUrl": "./button.scss",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-button',\r\n  imports: [CommonModule],\r\n  template: ` <button\r\n  type=\"button\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\r\n>\r\n  {{ label }}\r\n</button>`,\r\n  styleUrls: ['./button.scss']\r\n})\r\nexport class Button {\r\n\r\n  @Input()\r\n  primary = false;\r\n\r\n  /** What background color to use */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /** How large should the button be? */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'medium';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /** Optional click handler */\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\r\n\r\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\r\n  }\r\n}\r\n\r\n",
             "assetsDirs": [],
-            "styleUrlsData": "",
+            "styleUrlsData": [
+                {
+                    "data": ".storybook-button {\r\n  display: inline-block;\r\n  cursor: pointer;\r\n  border: 0;\r\n  border-radius: 3em;\r\n  font-weight: 700;\r\n  line-height: 1;\r\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n}\r\n.storybook-button--primary {\r\n  background-color: #555ab9;\r\n  color: white;\r\n}\r\n.storybook-button--secondary {\r\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\r\n  background-color: transparent;\r\n  color: #333;\r\n}\r\n.storybook-button--small {\r\n  padding: 10px 16px;\r\n  font-size: 12px;\r\n}\r\n.storybook-button--medium {\r\n  padding: 11px 20px;\r\n  font-size: 14px;\r\n}\r\n.storybook-button--large {\r\n  padding: 12px 24px;\r\n  font-size: 16px;\r\n}\r\n",
+                    "styleUrl": "./button.scss"
+                }
+            ],
             "stylesData": "",
             "extends": [],
             "accessors": {
@@ -385,8 +389,49 @@
             "templateData": "<header class=\"fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-48 lg:z-61 w-full bg-zinc-100 text-sm py-2.5 dark:bg-neutral-900\">\r\n    <nav class=\"px-4 sm:px-5.5 flex basis-full items-center w-full mx-auto\">\r\n      <div class=\"w-full flex items-center gap-x-1.5\">\r\n        <ul class=\"flex items-center gap-1.5\">\r\n          <li class=\"inline-flex items-center relative text-gray-200 pe-1.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:w-px after:h-3.5 after:bg-gray-300 after:rounded-full after:-translate-y-1/2 after:rotate-12 dark:text-neutral-200 dark:after:bg-neutral-700\">\r\n            <a class=\"shrink-0 inline-flex justify-center items-center bg-indigo-700 size-8 rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80\" href=\"index.html\" aria-label=\"Preline\">\r\n              <!-- <svg class=\"shrink-0 size-5\" width=\"36\" height=\"36\" viewBox=\"0 0 36 36\" fill=\"none\" xmlns=\"httttttttttt://www.w3.org/2000/svg\">\r\n                <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18.0835 3.23358C9.88316 3.23358 3.23548 9.8771 3.23548 18.0723V35.5832H0.583496V18.0723C0.583496 8.41337 8.41851 0.583252 18.0835 0.583252C27.7485 0.583252 35.5835 8.41337 35.5835 18.0723C35.5835 27.7312 27.7485 35.5614 18.0835 35.5614H16.7357V32.911H18.0835C26.2838 32.911 32.9315 26.2675 32.9315 18.0723C32.9315 9.8771 26.2838 3.23358 18.0835 3.23358Z\" class=\"fill-white\" fill=\"currentColor\"></path>\r\n                <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18.0833 8.62162C12.8852 8.62162 8.62666 12.9245 8.62666 18.2879V35.5833H5.97468V18.2879C5.97468 11.5105 11.3713 5.97129 18.0833 5.97129C24.7954 5.97129 30.192 11.5105 30.192 18.2879C30.192 25.0653 24.7954 30.6045 18.0833 30.6045H16.7355V27.9542H18.0833C23.2815 27.9542 27.54 23.6513 27.54 18.2879C27.54 12.9245 23.2815 8.62162 18.0833 8.62162Z\" class=\"fill-white\" fill=\"currentColor\"></path>\r\n                <path d=\"M24.8225 18.1012C24.8225 21.8208 21.8053 24.8361 18.0833 24.8361C14.3614 24.8361 11.3442 21.8208 11.3442 18.1012C11.3442 14.3815 14.3614 11.3662 18.0833 11.3662C21.8053 11.3662 24.8225 14.3815 24.8225 18.1012Z\" class=\"fill-white\" fill=\"currentColor\"></path>\r\n              </svg> -->\r\n            </a>\r\n\r\n            <div class=\"hidden sm:block ms-1\">\r\n              <!-- Templates Dropdown -->\r\n              <div class=\"hs-dropdown  relative  [--scope:window] [--auto-close:inside] inline-flex\">\r\n                <button id=\"hs-dropdown-preview-navbar\" type=\"button\" class=\"hs-dropdown-toggle  group relative flex justify-center items-center size-8 text-xs rounded-lg text-gray-800 hover:bg-gray-200 focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-label=\"Dropdown\">\r\n                \r\n\r\n                  <span class=\"absolute -top-0.5 -end-0.5\">\r\n                    <span class=\"relative flex\">\r\n                      <span class=\"animate-ping absolute inline-flex size-full rounded-full bg-red-400 dark:bg-red-600 opacity-75\"></span>\r\n                      <span class=\"relative inline-flex size-2 bg-red-500 rounded-full\"></span>\r\n                      <span class=\"sr-only\">Notification</span>\r\n                    </span>\r\n                  </span>\r\n                </button>\r\n \r\n              </div>\r\n              <!-- End Templates Dropdown -->\r\n            </div>\r\n\r\n            <!-- Sidebar Toggle -->\r\n            <button type=\"button\" class=\"p-1.5 size-7.5 inline-flex items-center gap-x-1 text-xs rounded-md border border-transparent text-gray-500 hover:text-gray-800 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus:text-neutral-400\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria-controls=\"hs-pro-sidebar\" data-hs-overlay=\"#hs-pro-sidebar\">\r\n              <svg class=\"shrink-0 size-3.5\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect>\r\n                <path d=\"M15 3v18\"></path>\r\n                <path d=\"m10 15-3-3 3-3\"></path>\r\n              </svg>\r\n              <span class=\"sr-only\">Sidebar Toggle</span>\r\n            </button>\r\n            <!-- End Sidebar Toggle -->\r\n          </li>\r\n\r\n          <li class=\"inline-flex items-center relative text-gray-200 pe-1.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:w-px after:h-3.5 after:bg-gray-300 after:rounded-full after:-translate-y-1/2 after:rotate-12 dark:text-neutral-200 dark:after:bg-neutral-700\">\r\n            <!-- Project Dropdown -->\r\n            <div class=\"inline-flex justify-center w-full\">\r\n              <div class=\"hs-dropdown relative [--strategy:absolute] [--placement:bottom-left] inline-flex\">\r\n                <!-- Project Button -->\r\n                <button id=\"hs-pro-anpjdi\" type=\"button\" class=\"py-1 px-2 min-h-8 flex items-center gap-x-1 font-medium text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-label=\"Dropdown\">\r\n                  <img class=\"shrink-0 size-6 rounded-full object-cover me-1\" src=\"../../assets/img/logo/hs.png\" alt=\"Logo\">\r\n                  Htmlstream\r\n                  <svg class=\"shrink-0 size-3.5\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                    <path d=\"m7 15 5 5 5-5\"></path>\r\n                    <path d=\"m7 9 5-5 5 5\"></path>\r\n                  </svg>\r\n                </button>\r\n                <!-- End Project Button -->\r\n\r\n                <!-- Dropdown -->\r\n                <div class=\"hs-dropdown-menu hs-dropdown-open:opacity-100 w-65 transition-[opacity,margin] duration opacity-0 z-20 bg-white border border-gray-200 rounded-xl shadow-xl dark:bg-neutral-900 dark:border-neutral-700 hidden\" role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"hs-pro-anpjdi\" tabindex=\"-1\" data-placement=\"bottom-start\" style=\"transform: translate3d(0px, 42px, 0px);\">\r\n                  <div class=\"p-1\">\r\n                    <span class=\"block pt-2 pb-2 ps-2.5 text-sm text-gray-500 dark:text-neutral-500\">\r\n                      Projects (2)\r\n                    </span>\r\n\r\n                    <div class=\"flex flex-col gap-y-1\">\r\n                      <!-- Item -->\r\n                      <label for=\"hs-pro-anpjdi1\" class=\"py-2 px-2.5 group flex justify-start items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\">\r\n                        <input type=\"radio\" class=\"hidden\" id=\"hs-pro-anpjdi1\" name=\"hs-pro-anpjdi\" checked=\"\">\r\n                        <!-- <svg class=\"shrink-0 size-4 opacity-0 group-has-checked:opacity-100\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                          <path d=\"M20 6 9 17l-5-5\"></path>\r\n                        </svg> -->\r\n                        <span class=\"grow\">\r\n                          <span class=\"block text-sm font-medium text-gray-800 dark:text-neutral-200\">\r\n                            Htmlstream\r\n                          </span>\r\n                        </span>\r\n                        <!-- <img class=\"shrink-0 size-5 rounded-full object-cover\" src=\"../../assets/img/logo/hs.png\" alt=\"Logo\"> -->\r\n                      </label>\r\n                      <!-- End Item -->\r\n\r\n              \r\n                    </div>\r\n                  </div>\r\n\r\n                  <div class=\"p-1 border-t border-gray-200 dark:border-neutral-700\">\r\n                    <button type=\"button\" class=\"group w-full flex items-center gap-x-3 py-2 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\">\r\n                      <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                        <circle cx=\"12\" cy=\"12\" r=\"10\"></circle>\r\n                        <path d=\"M8 12h8\"></path>\r\n                        <path d=\"M12 8v8\"></path>\r\n                      </svg>\r\n                      Add project\r\n                    </button>\r\n\r\n                    <button type=\"button\" class=\"w-full flex items-center gap-x-3 py-2 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\">\r\n                      <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                        <path d=\"M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z\"></path>\r\n                        <circle cx=\"12\" cy=\"12\" r=\"3\"></circle>\r\n                      </svg>\r\n                      Manage projects\r\n                    </button>\r\n                  </div>\r\n                </div>\r\n                <!-- End Dropdown -->\r\n              </div>\r\n            </div>\r\n            <!-- End Project Dropdown -->\r\n          </li>\r\n\r\n          <li class=\"inline-flex items-center relative text-gray-200 pe-1.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:w-px after:h-3.5 after:bg-gray-300 after:rounded-full after:-translate-y-1/2 after:rotate-12 dark:text-neutral-200 dark:after:bg-neutral-700\">\r\n            <!-- Teams Dropdown -->\r\n            <div class=\"inline-flex justify-center w-full\">\r\n              <div class=\"hs-dropdown relative [--strategy:absolute] [--placement:bottom-left] inline-flex w-full\">\r\n                <!-- Teams Button -->\r\n                <button id=\"hs-pro-antmd\" type=\"button\" class=\"py-1 px-2 min-h-8 flex items-center gap-x-1 font-medium text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-label=\"Dropdown\">\r\n                  Marketing\r\n                  <svg class=\"shrink-0 size-3.5\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                    <path d=\"m7 15 5 5 5-5\"></path>\r\n                    <path d=\"m7 9 5-5 5 5\"></path>\r\n                  </svg>\r\n                </button>\r\n                <!-- End Teams Button -->\r\n\r\n                <!-- Dropdown -->\r\n                <div class=\"hs-dropdown-menu hs-dropdown-open:opacity-100 w-65 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-white border border-gray-200 rounded-xl shadow-xl dark:bg-neutral-900 dark:border-neutral-700\" role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"hs-pro-antmd\" tabindex=\"-1\">\r\n                  <div class=\"p-1\">\r\n                    <span class=\"block pt-2 pb-2 ps-2.5 text-sm text-gray-500 dark:text-neutral-500\">\r\n                      Teams (1)\r\n                    </span>\r\n\r\n                    <div class=\"flex flex-col gap-y-1\">\r\n                      <!-- Item -->\r\n                      <label for=\"hs-pro-antmdi1\" class=\"py-2 px-2.5 group flex justify-start items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\">\r\n                        <input type=\"radio\" class=\"hidden\" id=\"hs-pro-antmdi1\" name=\"hs-pro-antmdi\" checked=\"\">\r\n                        <svg class=\"shrink-0 size-4 opacity-0 group-has-checked:opacity-100\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                          <path d=\"M20 6 9 17l-5-5\"></path>\r\n                        </svg>\r\n                        <span class=\"grow\">\r\n                          <span class=\"block text-sm font-medium text-gray-800 dark:text-neutral-200\">\r\n                            Marketing\r\n                          </span>\r\n                        </span>\r\n                      </label>\r\n                      <!-- End Item -->\r\n                    </div>\r\n                  </div>\r\n\r\n                  <div class=\"p-1 border-t border-gray-200 dark:border-neutral-700\">\r\n                    <button type=\"button\" class=\"w-full flex items-center gap-x-3 py-2 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\">\r\n                      <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                        <circle cx=\"12\" cy=\"12\" r=\"10\"></circle>\r\n                        <path d=\"M8 12h8\"></path>\r\n                        <path d=\"M12 8v8\"></path>\r\n                      </svg>\r\n                      Add team\r\n                    </button>\r\n                  </div>\r\n                </div>\r\n                <!-- End Dropdown -->\r\n              </div>\r\n            </div>\r\n            <!-- End Teams Dropdown -->\r\n          </li>\r\n        </ul>\r\n\r\n        <ul class=\"flex flex-row items-center gap-x-3 ms-auto\">\r\n          <li class=\"hidden lg:inline-flex items-center gap-1.5 relative text-gray-500 pe-3 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:w-px after:h-3.5 after:bg-gray-300 after:rounded-full after:-translate-y-1/2 after:rotate-12 dark:text-neutral-200 dark:after:bg-neutral-700\">\r\n            \r\n\r\n           \r\n          </li>\r\n\r\n          <li class=\"inline-flex items-center gap-1.5 relative text-gray-500 pe-3 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:w-px after:h-3.5 after:bg-gray-300 after:rounded-full after:-translate-y-1/2 after:rotate-12 dark:text-neutral-200 dark:after:bg-neutral-700\">\r\n            <button type=\"button\" class=\"relative hidden lg:flex justify-center items-center gap-x-1.5 size-8 text-sm bg-gray-100 text-gray-500 rounded-full hover:bg-gray-200 hover:text-gray-800 focus:outline-hidden focus:bg-gray-200 focus:text-gray-800 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-200 dark:text-neutral-500\">\r\n              <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                <path d=\"M12 7v14\"></path>\r\n                <path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"></path>\r\n              </svg>\r\n              <span class=\"sr-only\">Knowledge Base</span>\r\n            </button>\r\n\r\n            <div class=\"h-8\">\r\n              <!-- Account Dropdown -->\r\n              <div class=\"hs-dropdown inline-flex [--strategy:absolute] [--auto-close:inside] [--placement:bottom-right] relative text-start\">\r\n                <button id=\"hs-dnad\" type=\"button\" class=\"p-0.5 inline-flex shrink-0 items-center gap-x-3 text-start rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800 dark:focus:text-neutral-200 dark:text-neutral-500\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-label=\"Dropdown\">\r\n                  <!-- <img class=\"shrink-0 size-7 rounded-full\" src=\"httttttttttts://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80\" alt=\"Avatar\"> -->\r\n               \r\n               Profile </button>\r\n\r\n                <!-- Account Dropdown -->\r\n                <div class=\"hs-dropdown-menu hs-dropdown-open:opacity-100 w-60 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-white border border-gray-200 rounded-xl shadow-xl dark:bg-neutral-900 dark:border-neutral-700\" role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"hs-dnad\" tabindex=\"-1\">\r\n                  <div class=\"py-2 px-3.5\">\r\n                    <span class=\"font-medium text-gray-800 dark:text-neutral-300\">\r\n                      Narinder Singh\r\n                    </span>\r\n                    <p class=\"text-sm text-gray-500 dark:text-neutral-500\">\r\n                      Narinder@gmail.com\r\n                    </p>\r\n                    <div class=\"mt-1.5\">\r\n                      <a class=\"flex justify-center items-center gap-x-1.5 py-2 px-2.5 font-medium text-[13px] bg-black text-white rounded-lg focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:bg-white dark:text-black\" href=\"#\">\r\n                        Upgrade to Pro\r\n                      </a>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"px-4 py-2 border-t border-gray-200 dark:border-neutral-800\">\r\n                    <!-- Switch/Toggle -->\r\n                    <div class=\"flex flex-wrap justify-between items-center gap-2\">\r\n                      <span class=\"flex-1 cursor-pointer text-sm text-gray-600 dark:text-neutral-400\">Theme</span>\r\n                      <div class=\"p-0.5 inline-flex cursor-pointer bg-gray-100 rounded-full dark:bg-neutral-800\">\r\n                        <button type=\"button\" class=\"size-7 flex justify-center items-center bg-white shadow-sm text-gray-800 rounded-full dark:text-neutral-200 hs-auto-mode-active:bg-transparent hs-auto-mode-active:shadow-none hs-dark-mode-active:bg-transparent hs-dark-mode-active:shadow-none\" data-hs-theme-click-value=\"default\">\r\n                          <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                            <circle cx=\"12\" cy=\"12\" r=\"4\"></circle>\r\n                            <path d=\"M12 3v1\"></path>\r\n                            <path d=\"M12 20v1\"></path>\r\n                            <path d=\"M3 12h1\"></path>\r\n                            <path d=\"M20 12h1\"></path>\r\n                            <path d=\"m18.364 5.636-.707.707\"></path>\r\n                            <path d=\"m6.343 17.657-.707.707\"></path>\r\n                            <path d=\"m5.636 5.636.707.707\"></path>\r\n                            <path d=\"m17.657 17.657.707.707\"></path>\r\n                          </svg>\r\n                          <span class=\"sr-only\">Default (Light)</span>\r\n                        </button>\r\n                        <button type=\"button\" class=\"size-7 flex justify-center items-center text-gray-800 rounded-full dark:text-neutral-200 hs-dark-mode-active:bg-white hs-dark-mode-active:shadow-sm hs-dark-mode-active:text-neutral-800\" data-hs-theme-click-value=\"dark\">\r\n                          <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                            <path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"></path>\r\n                          </svg>\r\n                          <span class=\"sr-only\">Dark</span>\r\n                        </button>\r\n                        <button type=\"button\" class=\"size-7 flex justify-center items-center text-gray-800 rounded-full dark:text-neutral-200 hs-auto-light-mode-active:bg-white hs-auto-dark-mode-active:bg-red-800 hs-auto-mode-active:shadow-sm\" data-hs-theme-click-value=\"auto\">\r\n                          <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                            <rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\"></rect>\r\n                            <line x1=\"8\" x2=\"16\" y1=\"21\" y2=\"21\"></line>\r\n                            <line x1=\"12\" x2=\"12\" y1=\"17\" y2=\"21\"></line>\r\n                          </svg>\r\n                          <span class=\"sr-only\">Auto (System)</span>\r\n                        </button>\r\n                      </div>\r\n                    </div>\r\n                    <!-- End Switch/Toggle -->\r\n                  </div>\r\n                  <div class=\"p-1 border-t border-gray-200 dark:border-neutral-800\">\r\n                    <a class=\"flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\" href=\"#\">\r\n                      <svg class=\"shrink-0 mt-0.5 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                        <path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"></path>\r\n                        <circle cx=\"12\" cy=\"7\" r=\"4\"></circle>\r\n                      </svg>\r\n                      Profile\r\n                    </a>\r\n                    <a class=\"flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\" href=\"#\">\r\n                      <svg class=\"shrink-0 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                        <path d=\"M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z\"></path>\r\n                        <circle cx=\"12\" cy=\"12\" r=\"3\"></circle>\r\n                      </svg>\r\n                      Settings\r\n                    </a>\r\n                    <a class=\"flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800\" href=\"#\">\r\n                      <svg class=\"shrink-0 mt-0.5 size-4\" xmlns=\"httttttttttt://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\r\n                        <path d=\"m16 17 5-5-5-5\"></path>\r\n                        <path d=\"M21 12H9\"></path>\r\n                        <path d=\"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4\"></path>\r\n                      </svg>\r\n                      Log out\r\n                    </a>\r\n                  </div>\r\n                </div>\r\n                <!-- End Account Dropdown -->\r\n              </div>\r\n              <!-- End Account Dropdown -->\r\n            </div>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </nav>\r\n  </header>"
         },
         {
+            "name": "Header",
+            "id": "component-Header-f257a948650bab89c782121344ac2bc7d9acd2718f949fb8733b127e75fe577e685ee5c13ad0b7320d110f59f1032043c215583a83debc4ab6be2c09150d24ea-1",
+            "file": "src/app/Stories/FullScreen/header/header.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-header",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./header.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  imports: [],\r\n  templateUrl: './header.html',\r\n  styleUrl: './header.scss'\r\n})\r\nexport class Header {\r\n\r\n}\r\n",
+            "styleUrl": "./header.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "Header-1",
+            "templateData": "<p>header works!</p>\r\n"
+        },
+        {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-1a11281708d9ebc6efe0f235be498c5d57fb6469d45d8f4936c7d328764fc6a29a0c6b16725abbdc12e09c00a3b48240695cc94198ff91a2a190aa621825ce20",
+            "id": "component-HeaderComponent-c237edc426912e16be31bbac07afef4d73f0960f81684b7834bb8bb3ad4856c0072bb04fcb452995a54b581941c05ccee6e44ffc96ab289a38e90f24ebf6af9e",
             "file": "src/stories/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -458,7 +503,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { Button  } from '../app/stories/Forms/button/button';\nimport type { User } from './user';\n\n@Component({\n  selector: 'storybook-header',\n  standalone: true,\n  imports: [CommonModule, Button],\n  template: `<header>\n  <div class=\"storybook-header\">\n    <div>\n      <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\" fill=\"#91BAF8\" />\n        </g>\n      </svg>\n      <h1>Acme</h1>\n    </div>\n    <div>\n      <div *ngIf=\"user\">\n        <span class=\"welcome\">\n          Welcome, <b>{{ user.name }}</b\n          >!\n        </span>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n      </div>\n      <div *ngIf=\"!user\">\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          class=\"margin-left\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          [primary]=\"true\"\n          class=\"margin-left\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </div>\n</header>`,\n  styleUrls: ['./header.css'],\n})\nexport class HeaderComponent {\n  @Input()\n  user: User | null = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { Button } from '../app/Stories/Forms/button/button';\nimport type { User } from './user';\n\n@Component({\n  selector: 'storybook-header',\n  standalone: true,\n  imports: [CommonModule, Button],\n  template: `<header>\n  <div class=\"storybook-header\">\n    <div>\n      <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\" fill=\"#91BAF8\" />\n        </g>\n      </svg>\n      <h1>Acme</h1>\n    </div>\n    <div>\n      <div *ngIf=\"user\">\n        <span class=\"welcome\">\n          Welcome, <b>{{ user.name }}</b\n          >!\n        </span>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n      </div>\n      <div *ngIf=\"!user\">\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          class=\"margin-left\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          [primary]=\"true\"\n          class=\"margin-left\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </div>\n</header>`,\n  styleUrls: ['./header.css'],\n})\nexport class HeaderComponent {\n  @Input()\n  user: User | null = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -472,7 +517,7 @@
         {
             "name": "Input",
             "id": "component-Input-38b44c38baa9372b01decbf6df293a3e657851a5f737971d57f5b5c0305ac59065b56150b0ee96fab6baba467b6bebcf8fa5ff98bd14c7001c8348ddef9f7764",
-            "file": "src/app/stories/Forms/input/input.ts",
+            "file": "src/app/Stories/Forms/input/input.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -506,44 +551,6 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<p>input works!</p>\r\n"
-        },
-        {
-            "name": "Menu",
-            "id": "component-Menu-c015cee20a0751244e94258ddf60d011b31210569d132a0e95bc8acd5557583ec36ad9ea74384a4dd8bfaaff54bacbc93519128d21399b2a3c617f70fe1ec7cb",
-            "file": "src/app/stories/Sidebar/menu/menu.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-menu",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./menu.html"
-            ],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": false,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-menu',\r\n  imports: [],\r\n  templateUrl: './menu.html',\r\n  styleUrl: './menu.scss'\r\n})\r\nexport class Menu {\r\n\r\n}\r\n",
-            "styleUrl": "./menu.scss",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "templateData": "<p>menu works!</p>\r\n"
         },
         {
             "name": "PageComponent",
@@ -780,7 +787,7 @@
         ]
     },
     "coverage": {
-        "count": 5,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -839,6 +846,33 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/Stories/Forms/button/button.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Button",
+                "coveragePercent": 66,
+                "coverageCount": "4/6",
+                "status": "good"
+            },
+            {
+                "filePath": "src/app/Stories/Forms/input/input.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Input",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/Stories/FullScreen/header/header.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Header",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/app.config.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -865,33 +899,6 @@
                 "name": "App",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Forms/button/button.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "Button",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
-            },
-            {
-                "filePath": "src/app/stories/Forms/input/input.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "Input",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Sidebar/menu/menu.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "Menu",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
                 "status": "low"
             },
             {

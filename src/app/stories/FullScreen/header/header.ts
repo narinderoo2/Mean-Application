@@ -1,16 +1,15 @@
+
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Button  } from '../../Forms/button/button';
-
-
+import { Button } from '../../Forms/button/button';
 export interface User {
   name: string;
 }
 @Component({
-  selector: 'app-header',
+  selector: 'storybook-header',
   imports: [CommonModule, Button],
-  template: `<header>
+   template: `<header>
   <div class="storybook-header">
     <div>
       <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -61,20 +60,13 @@ export interface User {
     </div>
   </div>
 </header>`,
-  styleUrl: './header.scss'
+  styleUrls: ['./header.scss']
 })
 export class Header {
-
  
-  @Input()
-  user: User | null = null;
-
-  @Output()
-  onLogin = new EventEmitter<Event>();
-
-  @Output()
-  onLogout = new EventEmitter<Event>();
-
-  @Output()
-  onCreateAccount = new EventEmitter<Event>();
+  @Input() user: User | null = null;
+  @Output() onLogin = new EventEmitter<Event>();
+  @Output() onLogout = new EventEmitter<Event>();
+  @Output() onCreateAccount = new EventEmitter<Event>();
 }
+

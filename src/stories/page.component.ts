@@ -1,16 +1,14 @@
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Header } from '../../FullScreen/header/header';
-export interface User {
-  name: string;
-}
+import { Header  } from '../app/Stories/FullScreen/header/header';
+import type { User } from './user';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'storybook-page',
+  standalone: true,
   imports: [CommonModule, Header],
-    template: `<article>
+  template: `<article>
   <storybook-header
     [user]="user"
     (onLogout)="doLogout()"
@@ -65,11 +63,9 @@ export interface User {
     </div>
   </section>
 </article>`,
-  styleUrl: './dashboard.scss'
+  styleUrls: ['./page.css'],
 })
-export class Dashboard {
-
- 
+export class PageComponent {
   user: User | null = null;
 
   doLogout() {
