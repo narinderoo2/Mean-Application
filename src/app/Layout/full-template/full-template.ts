@@ -12,4 +12,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class FullTemplate {
 
+  constructor(){
+    console.log("ddd");
+    
+  }
+
 }

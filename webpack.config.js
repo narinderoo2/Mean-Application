@@ -2,9 +2,12 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 module.exports = withModuleFederationPlugin({
   name: 'MeanApp',
+  // remotes: {
+  //   microapp: "http://localhost:4201/remoteEntry.js",
+  // },
   remotes: {
-    microapp: "http://localhost:4201/remoteEntry.js",
-  },
+  microapp: "microapp@dynamic", // ✅ dynamic remote
+},
 shared: {
     "@angular/core": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
     "@angular/common": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
